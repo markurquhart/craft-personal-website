@@ -1,11 +1,10 @@
-dateModified: 1760784451
+dateModified: 1760784712
 email:
   fromEmail: admin@example.com
   fromName: 'Personal Website'
   transportType: craft\mail\transportadapters\Sendmail
 meta:
   __names__:
-    0f4d0ed6-e0fc-4cc9-87c1-edc6eb6aff10: 'Creative Projects' # Creative Projects
     1df00815-d4ec-4fcf-9ab9-17af3321f5cb: Contact # Contact
     2cc53a53-7b72-4457-855f-981a8646f2fb: 'Public Schema' # Public Schema
     3c067755-b444-4a37-adf2-129197200614: 'End Date' # End Date
@@ -24,7 +23,6 @@ meta:
     198ec77f-5441-43c2-831d-fffa10b5cbd9: Destination # Destination
     274ddf00-152f-4298-b17d-8702d2121230: About # About
     344bdf69-27c9-4ce4-a72a-5be8bc8bfef6: 'Graphic Design Project' # Graphic Design Project
-    3166e34f-44f7-4855-bf97-2c056d085f88: 'Related Creative Projects' # Related Creative Projects
     3566b6f3-69af-4a3c-8666-914400c9ec2c: 'Travel Entry' # Travel Entry
     5928f4b9-741d-4c82-81a8-74bbf54bc5c2: 'Website Project' # Website Project
     6168c004-6475-43f6-846f-2110cf4902e9: Album # Album
@@ -35,7 +33,6 @@ meta:
     73613e44-814b-453f-9a8b-dcb1f05b4ca0: Thoughts # Thoughts
     85343b01-dd3a-4e2e-a63c-1fc064dce929: Gallery # Gallery
     159266ba-4826-4080-b786-c8c3a4ae4d66: Other # Other
-    76358275-968c-4a0c-a3ec-6368095a2670: 'Creative Categories' # Creative Categories
     89231261-4bb0-4277-8520-b2b9d0cfec3d: Customer # Customer
     a4f67cff-ed01-43e6-b5cf-1867fcfe36a6: 'Blog Categories' # Blog Categories
     a7c2870d-87a1-4e8f-a876-8444944dfd66: Photo # Photo
@@ -45,7 +42,6 @@ meta:
     ba2129eb-fc31-4dac-a5d1-232bb58624c4: 'Project URL' # Project URL
     c0f16977-0229-41c2-87a7-9be950a20d4d: 'Project Type' # Project Type
     cacb184b-95dc-48ac-bed0-0e2c13f58419: 'Start Date' # Start Date
-    ce8c2ad3-75f8-452c-9a78-7a69ad0f4a74: 'Creative Categories' # Creative Categories
     cf62c2e2-7139-4fb5-b42d-1d62e0308657: ISO # ISO
     d0819daa-6a14-48c3-9919-4bb45271707a: 'Date Taken' # Date Taken
     d0990615-5693-4924-b7d4-8b3615cb32e3: 'Travel Type' # Travel Type

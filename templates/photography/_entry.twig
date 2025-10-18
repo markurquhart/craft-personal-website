@@ -234,18 +234,9 @@
         {% endif %}
 
         {# Related content #}
-        {% if entry.relatedCreativeProjects|length or entry.relatedBlogPosts|length or entry.relatedTravels|length %}
+        {% if entry.relatedBlogPosts|length or entry.relatedTravels|length %}
             <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
                 <h3>Related Content</h3>
-
-                {% if entry.relatedCreativeProjects|length %}
-                    <h4>Related Projects</h4>
-                    <ul>
-                        {% for project in entry.relatedCreativeProjects.all() %}
-                            <li><a href="{{ project.url }}">{{ project.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
 
                 {% if entry.relatedBlogPosts|length %}
                     <h4>Related Blog Posts</h4>

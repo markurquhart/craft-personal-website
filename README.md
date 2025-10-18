@@ -14,17 +14,13 @@ A modern personal website built with Craft CMS 5, featuring a sophisticated cont
   - Project name, type, customer/client
   - Delivery date, description
   - Featured image and project image gallery
-- **Creative Projects** - Personal creative work and portfolio
-  - Website projects with technology stack and live URLs
-  - Graphic design projects with tools and software used
-  - Other creative projects
 - **Thoughts (Blog)** - Personal blog with categories and related content
 - **Travels** - Travel journal with destinations, dates, photo galleries, and trip types
 - **Static Pages** - Home, About, and Contact pages
 
 ### Key Features
-- Bi-directional content relationships (link blog posts to projects and travels)
-- Category taxonomies for both creative work and blog posts
+- Bi-directional content relationships (link blog posts, photography albums, and travels)
+- Category taxonomies for photography and blog posts
 - Photo galleries with metadata
 - Featured images for all content types
 - Responsive, minimal design
@@ -126,26 +122,21 @@ craft-personal-website/
 - **Contact** (Single) - Contact information
 - **Photography** (Structure) - 3-level hierarchical structure (Category → Album → Photo)
 - **Freelance Work** (Channel) - Client projects and deliverables
-- **Creative Projects** (Channel) - Personal creative portfolio with 3 entry types
 - **Thoughts** (Channel) - Blog posts
 - **Travels** (Channel) - Travel experiences
 
 ### Custom Fields
 - Photography metadata (Date Taken, Location, Camera, Lens, ISO, Aperture, Shutter Speed)
 - Freelance work fields (Project Type, Customer, Delivery Date, Project Images)
-- Project information (Client, Project Date, Technologies, Project URL)
 - Travel details (Destination, Start Date, End Date, Travel Type)
 - Media (Featured Image, Gallery)
-- Relationships (Related Creative Projects, Related Blog Posts, Related Travels, Related Photography Albums)
+- Relationships (Related Blog Posts, Related Travels, Related Photography Albums)
 
 ### Entry Types
 - **Category** - Photography categories like Sports, City, Wildlife (Level 1 in Photography structure)
 - **Album** - Photo album collections with location and date (Level 2 in Photography structure)
 - **Photo** - Individual photos with EXIF data (Level 3 in Photography structure)
 - **Freelance Project** - Client work and deliverables
-- **Website Project** - Web development work
-- **Graphic Design Project** - Design projects
-- **Other** - Other creative projects
 - **Blog Post** - Blog articles
 - **Travel Entry** - Travel experiences
 
