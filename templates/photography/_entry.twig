@@ -4,8 +4,90 @@
     <article>
         <h1>{{ entry.title }}</h1>
 
-        {% if entry.type.handle == 'album' %}
+        {% if entry.type.handle == 'category' %}
+            {# Category View - Show albums in this category #}
+
+            <div style="margin-bottom: 2rem;">
+                {% if entry.featuredImage|length %}
+                    {% set image = entry.featuredImage.one() %}
+                    <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem;">
+                {% endif %}
+
+                {% if entry.description %}
+                    <div style="line-height: 1.6;">
+                        {{ entry.description }}
+                    </div>
+                {% endif %}
+            </div>
+
+            {# Show albums in this category #}
+            {% set albums = craft.entries()
+                .section('photography')
+                .type('album')
+                .descendantOf(entry)
+                .orderBy('dateTaken DESC')
+                .all() %}
+
+            {% if albums|length %}
+                <h2 style="margin-top: 3rem; margin-bottom: 1.5rem;">Albums in {{ entry.title }}</h2>
+
+                <ul class="entry-list">
+                    {% for album in albums %}
+                        <li style="display: grid; grid-template-columns: 200px 1fr; gap: 1.5rem; align-items: start;">
+                            {% if album.featuredImage|length %}
+                                {% set image = album.featuredImage.one() %}
+                                <a href="{{ album.url }}">
+                                    <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                                </a>
+                            {% endif %}
+
+                            <div>
+                                <h3 style="margin-top: 0;">
+                                    <a href="{{ album.url }}">{{ album.title }}</a>
+                                </h3>
+
+                                <div class="meta">
+                                    {% if album.photoLocation %}
+                                        📍 {{ album.photoLocation }}
+                                    {% endif %}
+                                    {% if album.dateTaken %}
+                                        | 📅 {{ album.dateTaken|date('F j, Y') }}
+                                    {% endif %}
+                                    {% set photoCount = craft.entries()
+                                        .section('photography')
+                                        .type('photo')
+                                        .descendantOf(album)
+                                        .count() %}
+                                    {% if photoCount %}
+                                        | 📸 {{ photoCount }} photo{{ photoCount != 1 ? 's' : '' }}
+                                    {% endif %}
+                                </div>
+
+                                {% if album.description %}
+                                    <p style="margin-top: 0.5rem;">
+                                        {{ album.description|length > 150 ? album.description|slice(0, 150) ~ '...' : album.description }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p style="padding: 2rem; background: #f8f9fa; border-radius: 8px; text-align: center; margin-top: 2rem;">
+                    No albums in this category yet.
+                </p>
+            {% endif %}
+
+        {% elseif entry.type.handle == 'album' %}
             {# Album View - Show album details and child photos #}
+
+            {# Breadcrumb to parent category #}
+            {% set parent = entry.parent %}
+            {% if parent %}
+                <p style="margin-bottom: 1rem;">
+                    <a href="/photography">← Photography</a> / <a href="{{ parent.url }}">{{ parent.title }}</a>
+                </p>
+            {% endif %}
 
             <div class="meta" style="margin-bottom: 2rem;">
                 {% if entry.photoLocation %}
@@ -69,11 +151,16 @@
         {% elseif entry.type.handle == 'photo' %}
             {# Individual Photo View - Show EXIF data #}
 
-            {# Breadcrumb to parent album #}
-            {% set parent = entry.parent %}
-            {% if parent %}
+            {# Breadcrumb: Photography → Category → Album → Photo #}
+            {% set album = entry.parent %}
+            {% if album %}
+                {% set category = album.parent %}
                 <p style="margin-bottom: 1rem;">
-                    <a href="/photography">← Photography</a> / <a href="{{ parent.url }}">{{ parent.title }}</a>
+                    <a href="/photography">← Photography</a>
+                    {% if category %}
+                        / <a href="{{ category.url }}">{{ category.title }}</a>
+                    {% endif %}
+                    / <a href="{{ album.url }}">{{ album.title }}</a>
                 </p>
             {% endif %}
 

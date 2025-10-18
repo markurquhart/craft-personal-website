@@ -1,4 +1,4 @@
-dateModified: 1760784065
+dateModified: 1760784451
 email:
   fromEmail: admin@example.com
   fromName: 'Personal Website'
@@ -9,12 +9,15 @@ meta:
     1df00815-d4ec-4fcf-9ab9-17af3321f5cb: Contact # Contact
     2cc53a53-7b72-4457-855f-981a8646f2fb: 'Public Schema' # Public Schema
     3c067755-b444-4a37-adf2-129197200614: 'End Date' # End Date
+    3f639a1c-a692-4669-8e14-3ee859738f87: 'Project Images' # Project Images
     4b2588ed-d246-4db9-8745-fc8f03550046: 'Shutter Speed' # Shutter Speed
     4e8cd156-1f43-4e98-9720-0906a7ce215d: 'Related Travels' # Related Travels
     4efe193b-51c1-4707-b83e-1c9ca2f7e662: Camera # Camera
     5ced003a-b6f0-430a-96f7-bae1eeba339f: About # About
     6e310dc5-e2be-461c-984a-2b026bebe133: Home # Home
     6e605420-9aed-4e3a-92c7-085d0befa62c: 'Personal Website' # Personal Website
+    6ea259f9-7fbf-4638-88b4-5029893c504e: 'Freelance Project' # Freelance Project
+    15b2974f-eb8c-4286-9c8c-51c56a42f662: 'Freelance Work' # Freelance Work
     24ccf80e-d905-48a2-8c89-a0f39c35e096: Aperture # Aperture
     83d16854-51ce-4f2b-a110-a12b821f2009: Lens # Lens
     96b56c34-1669-47ea-85e3-1441e275ef5e: 'Personal Website' # Personal Website
@@ -33,12 +36,14 @@ meta:
     85343b01-dd3a-4e2e-a63c-1fc064dce929: Gallery # Gallery
     159266ba-4826-4080-b786-c8c3a4ae4d66: Other # Other
     76358275-968c-4a0c-a3ec-6368095a2670: 'Creative Categories' # Creative Categories
+    89231261-4bb0-4277-8520-b2b9d0cfec3d: Customer # Customer
     a4f67cff-ed01-43e6-b5cf-1867fcfe36a6: 'Blog Categories' # Blog Categories
     a7c2870d-87a1-4e8f-a876-8444944dfd66: Photo # Photo
     ab9be99f-cfb6-4a78-a560-8dadc3f6bd9a: Travels # Travels
     acb6679d-257d-41b7-acd1-d344aab953aa: 'Related Photography Albums' # Related Photography Albums
     b31a2d54-562f-4a51-9766-5102a14ea842: Client # Client
     ba2129eb-fc31-4dac-a5d1-232bb58624c4: 'Project URL' # Project URL
+    c0f16977-0229-41c2-87a7-9be950a20d4d: 'Project Type' # Project Type
     cacb184b-95dc-48ac-bed0-0e2c13f58419: 'Start Date' # Start Date
     ce8c2ad3-75f8-452c-9a78-7a69ad0f4a74: 'Creative Categories' # Creative Categories
     cf62c2e2-7139-4fb5-b42d-1d62e0308657: ISO # ISO
@@ -47,6 +52,8 @@ meta:
     d5c22496-2393-47c4-823d-6c4a9b0acd75: 'Related Blog Posts' # Related Blog Posts
     d75d67e6-4642-47be-9a66-35a1b93482da: Technologies # Technologies
     d105b363-6108-4e77-b353-9b3752ebab2d: Location # Location
+    e3dc5c42-45c8-4fba-9ea4-bfbdcc692c49: 'Delivery Date' # Delivery Date
+    e80cd405-beeb-463e-929c-62b766342ca0: Category # Category
     f99e0a9d-12eb-48c0-a2f4-483dfbebaddb: 'Blog Post' # Blog Post
     f256b6a2-bde6-4346-8341-089f299085c9: Photography # Photography
     f847a4de-d05c-499a-aaa4-27a2f47d6091: 'Project Date' # Project Date

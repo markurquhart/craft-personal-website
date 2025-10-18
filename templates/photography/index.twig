@@ -3,52 +3,55 @@
 {% block content %}
     <h1>Photography</h1>
 
-    <p style="margin-bottom: 2rem;">My photo albums and collections.</p>
+    <p style="margin-bottom: 2rem;">Browse my photography by category.</p>
 
-    {% set albums = craft.entries()
+    {% set categories = craft.entries()
         .section('photography')
-        .type('album')
+        .type('category')
         .level(1)
-        .orderBy('dateTaken DESC')
+        .orderBy('title ASC')
         .all() %}
 
-    {% if albums|length %}
+    {% if categories|length %}
         <ul class="entry-list">
-            {% for album in albums %}
+            {% for category in categories %}
                 <li>
-                    {% if album.featuredImage|length %}
-                        {% set image = album.featuredImage.one() %}
+                    {% if category.featuredImage|length %}
+                        {% set image = category.featuredImage.one() %}
                         <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
                     {% endif %}
 
-                    <h3><a href="{{ album.url }}">{{ album.title }}</a></h3>
+                    <h3><a href="{{ category.url }}">{{ category.title }}</a></h3>
 
                     <div class="meta">
-                        {% if album.photoLocation %}
-                            📍 {{ album.photoLocation }}
+                        {% set albumCount = craft.entries()
+                            .section('photography')
+                            .type('album')
+                            .descendantOf(category)
+                            .count() %}
+                        {% if albumCount %}
+                            📁 {{ albumCount }} album{{ albumCount != 1 ? 's' : '' }}
                         {% endif %}
-                        {% if album.dateTaken %}
-                            | 📅 {{ album.dateTaken|date('F j, Y') }}
-                        {% endif %}
+
                         {% set photoCount = craft.entries()
                             .section('photography')
                             .type('photo')
-                            .descendantOf(album)
+                            .descendantOf(category)
                             .count() %}
                         {% if photoCount %}
                             | 📸 {{ photoCount }} photo{{ photoCount != 1 ? 's' : '' }}
                         {% endif %}
                     </div>
 
-                    {% if album.description %}
-                        <p>{{ album.description|length > 250 ? album.description|slice(0, 250) ~ '...' : album.description }}</p>
+                    {% if category.description %}
+                        <p>{{ category.description|length > 250 ? category.description|slice(0, 250) ~ '...' : category.description }}</p>
                     {% endif %}
                 </li>
             {% endfor %}
         </ul>
     {% else %}
         <p style="padding: 2rem; background: #f8f9fa; border-radius: 8px; text-align: center;">
-            No photo albums yet. Create some in the Craft control panel!
+            No photography categories yet. Create some in the Craft control panel!
         </p>
     {% endif %}
 {% endblock %}

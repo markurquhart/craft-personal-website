@@ -5,6 +5,8 @@ entryTypes:
     uid: 6168c004-6475-43f6-846f-2110cf4902e9 # Album
   -
     uid: a7c2870d-87a1-4e8f-a876-8444944dfd66 # Photo
+  -
+    uid: e80cd405-beeb-463e-929c-62b766342ca0 # Category
 handle: photography
 maxAuthors: 1
 name: Photography
@@ -20,6 +22,6 @@ siteSettings:
     template: photography/_entry
     uriFormat: 'photography/{slug}'
 structure:
-  maxLevels: 2
+  maxLevels: 3
   uid: c2d18f13-2eb7-457b-9b9e-d2605c5f0fe5
 type: structure

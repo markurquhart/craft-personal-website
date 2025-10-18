@@ -1,0 +1,47 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <h1>Freelance Work</h1>
+
+    <p style="margin-bottom: 2rem;">Client projects and freelance work I've delivered.</p>
+
+    {% set projects = craft.entries()
+        .section('freelanceWork')
+        .orderBy('deliveryDate DESC')
+        .all() %}
+
+    {% if projects|length %}
+        <ul class="entry-list">
+            {% for project in projects %}
+                <li>
+                    {% if project.featuredImage|length %}
+                        {% set image = project.featuredImage.one() %}
+                        <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                    {% endif %}
+
+                    <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
+
+                    <div class="meta">
+                        {% if project.projectType %}
+                            {{ project.projectType }}
+                        {% endif %}
+                        {% if project.customer %}
+                            | Client: {{ project.customer }}
+                        {% endif %}
+                        {% if project.deliveryDate %}
+                            | Delivered: {{ project.deliveryDate|date('F j, Y') }}
+                        {% endif %}
+                    </div>
+
+                    {% if project.description %}
+                        <p>{{ project.description|length > 250 ? project.description|slice(0, 250) ~ '...' : project.description }}</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="padding: 2rem; background: #f8f9fa; border-radius: 8px; text-align: center;">
+            No freelance projects yet. Create some in the Craft control panel!
+        </p>
+    {% endif %}
+{% endblock %}

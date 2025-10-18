@@ -1,0 +1,49 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <article>
+        <h1>{{ entry.title }}</h1>
+
+        <div class="meta" style="margin-bottom: 2rem;">
+            {% if entry.projectType %}
+                <span>{{ entry.projectType }}</span>
+            {% endif %}
+            {% if entry.customer %}
+                | <span>Client: {{ entry.customer }}</span>
+            {% endif %}
+            {% if entry.deliveryDate %}
+                | <span>Delivered: {{ entry.deliveryDate|date('F j, Y') }}</span>
+            {% endif %}
+        </div>
+
+        {% if entry.featuredImage|length %}
+            <div class="featured-image" style="margin: 2rem 0;">
+                {% set image = entry.featuredImage.one() %}
+                {% if image %}
+                    <img src="{{ image.url }}" alt="{{ image.title }}" style="max-width: 100%; height: auto; border-radius: 8px;">
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if entry.description %}
+            <div class="content" style="margin-bottom: 3rem;">
+                {{ entry.description }}
+            </div>
+        {% endif %}
+
+        {% if entry.projectImages|length %}
+            <div class="content">
+                <h2>Project Images</h2>
+                <div class="gallery">
+                    {% for image in entry.projectImages.all() %}
+                        <img src="{{ image.url }}" alt="{{ image.title }}">
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        <p style="margin-top: 3rem;">
+            <a href="/freelance">← Back to Freelance Work</a>
+        </p>
+    </article>
+{% endblock %}

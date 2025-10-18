@@ -1,0 +1,125 @@
+color: null
+description: null
+fieldLayouts:
+  cf663c43-78cc-47d9-b7d3-e7e16dc2ed5c:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 70395f0a-cf4d-437f-91a5-3d65d785bbe2 # Featured Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2b3fc249-3030-45f2-9877-89cbf695e6e1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: c0f16977-0229-41c2-87a7-9be950a20d4d # Project Type
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 11ead34b-cd33-4c99-b231-46b4dda526ba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 89231261-4bb0-4277-8520-b2b9d0cfec3d # Customer
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 071fd123-ad9b-41be-b824-314cf1d9b03a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: e3dc5c42-45c8-4fba-9ea4-bfbdcc692c49 # Delivery Date
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5b5e6f32-2eb6-47b4-9f60-3bb465c1297a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 8438e27f-4863-4220-a584-8d088ce182ab # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7f3ff750-aeec-4e8a-ad6b-b110522e5a4b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3f639a1c-a692-4669-8e14-3ee859738f87 # Project Images
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d37addb6-08fd-4145-814b-b1ad83d87fae
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ddd603f9-e60a-4a70-887c-304d64e6aaa8
+        userCondition: null
+handle: freelanceProject
+hasTitleField: false
+icon: null
+name: 'Freelance Project'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

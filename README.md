@@ -5,11 +5,16 @@ A modern personal website built with Craft CMS 5, featuring a sophisticated cont
 ## Features
 
 ### Content Types
-- **Photography** - Photo albums with hierarchical structure
-  - Albums (parent entries) with featured images, locations, and dates
-  - Individual photos (child entries) with detailed EXIF data (camera, lens, ISO, aperture, shutter speed)
+- **Photography** - Three-level hierarchical photography organization
+  - Categories (Sports, City, Wildlife, Outdoors, etc.) - Level 1
+  - Albums (with name, date, location) - Level 2
+  - Individual photos with detailed EXIF data (camera, lens, ISO, aperture, shutter speed) - Level 3
   - Albums can be related to blog posts and travel entries
-- **Creative Projects** - Showcase web development, graphic design, and other creative work
+- **Freelance Work** - Client projects and freelance work
+  - Project name, type, customer/client
+  - Delivery date, description
+  - Featured image and project image gallery
+- **Creative Projects** - Personal creative work and portfolio
   - Website projects with technology stack and live URLs
   - Graphic design projects with tools and software used
   - Other creative projects
@@ -119,21 +124,25 @@ craft-personal-website/
 - **Home** (Single) - Homepage with featured content
 - **About** (Single) - About me page
 - **Contact** (Single) - Contact information
-- **Photography** (Structure) - Photo albums with hierarchical album/photo structure
-- **Creative Projects** (Channel) - Portfolio with 3 entry types
+- **Photography** (Structure) - 3-level hierarchical structure (Category → Album → Photo)
+- **Freelance Work** (Channel) - Client projects and deliverables
+- **Creative Projects** (Channel) - Personal creative portfolio with 3 entry types
 - **Thoughts** (Channel) - Blog posts
 - **Travels** (Channel) - Travel experiences
 
 ### Custom Fields
 - Photography metadata (Date Taken, Location, Camera, Lens, ISO, Aperture, Shutter Speed)
+- Freelance work fields (Project Type, Customer, Delivery Date, Project Images)
 - Project information (Client, Project Date, Technologies, Project URL)
 - Travel details (Destination, Start Date, End Date, Travel Type)
 - Media (Featured Image, Gallery)
-- Relationships (Related Creative Projects, Related Blog Posts, Related Travels)
+- Relationships (Related Creative Projects, Related Blog Posts, Related Travels, Related Photography Albums)
 
 ### Entry Types
-- **Album** - Photo album collections (parent entries in Photography structure)
-- **Photo** - Individual photos with EXIF data (child entries in Photography structure)
+- **Category** - Photography categories like Sports, City, Wildlife (Level 1 in Photography structure)
+- **Album** - Photo album collections with location and date (Level 2 in Photography structure)
+- **Photo** - Individual photos with EXIF data (Level 3 in Photography structure)
+- **Freelance Project** - Client work and deliverables
 - **Website Project** - Web development work
 - **Graphic Design Project** - Design projects
 - **Other** - Other creative projects
