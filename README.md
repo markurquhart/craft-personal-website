@@ -5,10 +5,14 @@ A modern personal website built with Craft CMS 5, featuring a sophisticated cont
 ## Features
 
 ### Content Types
-- **Creative Projects** - Showcase photography, web development, and graphic design work with type-specific metadata
-  - Photography projects with EXIF data (camera, lens, ISO, aperture, shutter speed)
+- **Photography** - Photo albums with hierarchical structure
+  - Albums (parent entries) with featured images, locations, and dates
+  - Individual photos (child entries) with detailed EXIF data (camera, lens, ISO, aperture, shutter speed)
+  - Albums can be related to blog posts and travel entries
+- **Creative Projects** - Showcase web development, graphic design, and other creative work
   - Website projects with technology stack and live URLs
   - Graphic design projects with tools and software used
+  - Other creative projects
 - **Thoughts (Blog)** - Personal blog with categories and related content
 - **Travels** - Travel journal with destinations, dates, photo galleries, and trip types
 - **Static Pages** - Home, About, and Contact pages
@@ -115,6 +119,7 @@ craft-personal-website/
 - **Home** (Single) - Homepage with featured content
 - **About** (Single) - About me page
 - **Contact** (Single) - Contact information
+- **Photography** (Structure) - Photo albums with hierarchical album/photo structure
 - **Creative Projects** (Channel) - Portfolio with 3 entry types
 - **Thoughts** (Channel) - Blog posts
 - **Travels** (Channel) - Travel experiences
@@ -127,9 +132,11 @@ craft-personal-website/
 - Relationships (Related Creative Projects, Related Blog Posts, Related Travels)
 
 ### Entry Types
-- **Photography Project** - Photo shoots and galleries
+- **Album** - Photo album collections (parent entries in Photography structure)
+- **Photo** - Individual photos with EXIF data (child entries in Photography structure)
 - **Website Project** - Web development work
 - **Graphic Design Project** - Design projects
+- **Other** - Other creative projects
 - **Blog Post** - Blog articles
 - **Travel Entry** - Travel experiences
 

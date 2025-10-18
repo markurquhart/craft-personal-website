@@ -1,4 +1,4 @@
-dateModified: 1760782942
+dateModified: 1760784065
 email:
   fromEmail: admin@example.com
   fromName: 'Personal Website'
@@ -24,16 +24,19 @@ meta:
     3166e34f-44f7-4855-bf97-2c056d085f88: 'Related Creative Projects' # Related Creative Projects
     3566b6f3-69af-4a3c-8666-914400c9ec2c: 'Travel Entry' # Travel Entry
     5928f4b9-741d-4c82-81a8-74bbf54bc5c2: 'Website Project' # Website Project
-    8141cc27-e55a-4aae-8cfd-ce93d54c0254: 'Photography Project' # Photography Project
+    6168c004-6475-43f6-846f-2110cf4902e9: Album # Album
     8438e27f-4863-4220-a584-8d088ce182ab: Description # Description
     8856cbd1-2d70-4498-8c89-0deee5fb2335: Home # Home
     48906ee2-8bd3-4c60-b829-3ce41725cfae: Contact # Contact
     70395f0a-cf4d-437f-91a5-3d65d785bbe2: 'Featured Image' # Featured Image
     73613e44-814b-453f-9a8b-dcb1f05b4ca0: Thoughts # Thoughts
     85343b01-dd3a-4e2e-a63c-1fc064dce929: Gallery # Gallery
+    159266ba-4826-4080-b786-c8c3a4ae4d66: Other # Other
     76358275-968c-4a0c-a3ec-6368095a2670: 'Creative Categories' # Creative Categories
     a4f67cff-ed01-43e6-b5cf-1867fcfe36a6: 'Blog Categories' # Blog Categories
+    a7c2870d-87a1-4e8f-a876-8444944dfd66: Photo # Photo
     ab9be99f-cfb6-4a78-a560-8dadc3f6bd9a: Travels # Travels
+    acb6679d-257d-41b7-acd1-d344aab953aa: 'Related Photography Albums' # Related Photography Albums
     b31a2d54-562f-4a51-9766-5102a14ea842: Client # Client
     ba2129eb-fc31-4dac-a5d1-232bb58624c4: 'Project URL' # Project URL
     cacb184b-95dc-48ac-bed0-0e2c13f58419: 'Start Date' # Start Date
@@ -45,6 +48,7 @@ meta:
     d75d67e6-4642-47be-9a66-35a1b93482da: Technologies # Technologies
     d105b363-6108-4e77-b353-9b3752ebab2d: Location # Location
     f99e0a9d-12eb-48c0-a2f4-483dfbebaddb: 'Blog Post' # Blog Post
+    f256b6a2-bde6-4346-8341-089f299085c9: Photography # Photography
     f847a4de-d05c-499a-aaa4-27a2f47d6091: 'Project Date' # Project Date
     f8369934-e74d-4827-87e1-6610147ec228: 'Blog Categories' # Blog Categories
 system:

@@ -2,11 +2,11 @@ defaultPlacement: end
 enableVersioning: true
 entryTypes:
   -
-    uid: 8141cc27-e55a-4aae-8cfd-ce93d54c0254 # Photography Project
-  -
     uid: 5928f4b9-741d-4c82-81a8-74bbf54bc5c2 # Website Project
   -
     uid: 344bdf69-27c9-4ce4-a72a-5be8bc8bfef6 # Graphic Design Project
+  -
+    uid: 159266ba-4826-4080-b786-c8c3a4ae4d66 # Other
 handle: creativeProjects
 maxAuthors: 1
 name: 'Creative Projects'

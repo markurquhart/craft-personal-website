@@ -1,7 +1,7 @@
 color: null
 description: null
 fieldLayouts:
-  97111621-f62a-439d-9777-a5900718a0e2:
+  3127d006-402c-4991-bd57-5a71a20c721a:
     cardThumbAlignment: end
     tabs:
       -
@@ -20,7 +20,24 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 19fb8caa-0db2-440f-952c-ae967fb295cd
+            uid: 65344ec5-4f68-4eeb-b3a5-375c336cba37
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 85343b01-dd3a-4e2e-a63c-1fc064dce929 # Gallery
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0d373c80-ca05-4469-a0f8-6a3b6abe7bbe
             userCondition: null
             warning: null
             width: 100
@@ -37,7 +54,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3d04badc-a7e5-4a24-ba1e-6fdcb3e770d7
+            uid: 520cea3c-0777-4b0c-9f61-c8532935b997
             userCondition: null
             warning: null
             width: 100
@@ -45,7 +62,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: f8369934-e74d-4827-87e1-6610147ec228 # Blog Categories
+            fieldUid: b31a2d54-562f-4a51-9766-5102a14ea842 # Client
             handle: null
             includeInCards: false
             instructions: null
@@ -54,74 +71,51 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 72afc436-4b3c-4e74-ba76-7cbab3c1e80e
+            uid: 6519ce9c-8b8b-4b6b-8841-6e9236abe45a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: f847a4de-d05c-499a-aaa4-27a2f47d6091 # Project Date
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2d63ab1d-defe-49a4-9ff4-dd2b337f6191
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76358275-968c-4a0c-a3ec-6368095a2670 # Creative Categories
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bf793c6a-55fc-4967-952b-58aa09a1e39a
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 93aa253c-d79c-4fc0-a8d2-dc4f30209ac7
+        uid: 3825e51d-f84e-4b0b-b8c3-179e2aa79d15
         userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            fieldUid: 3166e34f-44f7-4855-bf97-2c056d085f88 # Related Creative Projects
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 94a52e18-4541-4fd5-87d4-6529bf91657e
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            fieldUid: 4e8cd156-1f43-4e98-9720-0906a7ce215d # Related Travels
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: ebd4e741-29b0-4800-a108-7b2edd76606a
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            fieldUid: acb6679d-257d-41b7-acd1-d344aab953aa # Related Photography Albums
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: e349727d-b50c-449b-8320-f1a511564336
-            userCondition: null
-            warning: null
-            width: 100
-        name: 'Related Content'
-        uid: e5d877a3-7919-4cb4-927e-e84152eb563e
-        userCondition: null
-handle: blogPost
+handle: other
 hasTitleField: false
 icon: null
-name: 'Blog Post'
+name: Other
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

@@ -1,0 +1,187 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <article>
+        <h1>{{ entry.title }}</h1>
+
+        {% if entry.type.handle == 'album' %}
+            {# Album View - Show album details and child photos #}
+
+            <div class="meta" style="margin-bottom: 2rem;">
+                {% if entry.photoLocation %}
+                    📍 {{ entry.photoLocation }}
+                {% endif %}
+                {% if entry.dateTaken %}
+                    | 📅 {{ entry.dateTaken|date('F j, Y') }}
+                {% endif %}
+            </div>
+
+            {% if entry.featuredImage|length %}
+                {% set image = entry.featuredImage.one() %}
+                <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; max-height: 500px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem;">
+            {% endif %}
+
+            {% if entry.description %}
+                <div style="margin-bottom: 3rem; line-height: 1.6;">
+                    {{ entry.description }}
+                </div>
+            {% endif %}
+
+            {# Show child photos #}
+            {% set photos = craft.entries()
+                .section('photography')
+                .type('photo')
+                .descendantOf(entry)
+                .orderBy('dateTaken DESC')
+                .all() %}
+
+            {% if photos|length %}
+                <h2 style="margin-top: 3rem; margin-bottom: 1.5rem;">Photos in this Album ({{ photos|length }})</h2>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+                    {% for photo in photos %}
+                        <div>
+                            {% if photo.featuredImage|length %}
+                                {% set image = photo.featuredImage.one() %}
+                                <a href="{{ photo.url }}">
+                                    <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 0.5rem;">
+                                </a>
+                            {% endif %}
+
+                            <h3 style="font-size: 1.1rem; margin: 0.5rem 0;">
+                                <a href="{{ photo.url }}">{{ photo.title }}</a>
+                            </h3>
+
+                            {% if photo.description %}
+                                <p style="font-size: 0.9rem; color: #666; margin: 0.5rem 0;">
+                                    {{ photo.description|length > 100 ? photo.description|slice(0, 100) ~ '...' : photo.description }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p style="padding: 2rem; background: #f8f9fa; border-radius: 8px; text-align: center; margin-top: 2rem;">
+                    No photos in this album yet.
+                </p>
+            {% endif %}
+
+        {% elseif entry.type.handle == 'photo' %}
+            {# Individual Photo View - Show EXIF data #}
+
+            {# Breadcrumb to parent album #}
+            {% set parent = entry.parent %}
+            {% if parent %}
+                <p style="margin-bottom: 1rem;">
+                    <a href="/photography">← Photography</a> / <a href="{{ parent.url }}">{{ parent.title }}</a>
+                </p>
+            {% endif %}
+
+            {% if entry.featuredImage|length %}
+                {% set image = entry.featuredImage.one() %}
+                <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; max-height: 700px; object-fit: contain; border-radius: 8px; margin-bottom: 2rem; background: #000;">
+            {% endif %}
+
+            {% if entry.description %}
+                <div style="margin-bottom: 2rem; line-height: 1.6;">
+                    {{ entry.description }}
+                </div>
+            {% endif %}
+
+            {# Photo metadata #}
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                <h3 style="margin-top: 0;">Photo Details</h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    {% if entry.dateTaken %}
+                        <div>
+                            <strong>Date Taken:</strong><br>
+                            {{ entry.dateTaken|date('F j, Y') }}
+                        </div>
+                    {% endif %}
+
+                    {% if entry.photoLocation %}
+                        <div>
+                            <strong>Location:</strong><br>
+                            {{ entry.photoLocation }}
+                        </div>
+                    {% endif %}
+
+                    {% if entry.camera %}
+                        <div>
+                            <strong>Camera:</strong><br>
+                            {{ entry.camera }}
+                        </div>
+                    {% endif %}
+
+                    {% if entry.lens %}
+                        <div>
+                            <strong>Lens:</strong><br>
+                            {{ entry.lens }}
+                        </div>
+                    {% endif %}
+
+                    {% if entry.iso %}
+                        <div>
+                            <strong>ISO:</strong><br>
+                            {{ entry.iso }}
+                        </div>
+                    {% endif %}
+
+                    {% if entry.aperture %}
+                        <div>
+                            <strong>Aperture:</strong><br>
+                            f/{{ entry.aperture }}
+                        </div>
+                    {% endif %}
+
+                    {% if entry.shutterSpeed %}
+                        <div>
+                            <strong>Shutter Speed:</strong><br>
+                            {{ entry.shutterSpeed }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+        {% endif %}
+
+        {# Related content #}
+        {% if entry.relatedCreativeProjects|length or entry.relatedBlogPosts|length or entry.relatedTravels|length %}
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
+                <h3>Related Content</h3>
+
+                {% if entry.relatedCreativeProjects|length %}
+                    <h4>Related Projects</h4>
+                    <ul>
+                        {% for project in entry.relatedCreativeProjects.all() %}
+                            <li><a href="{{ project.url }}">{{ project.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                {% if entry.relatedBlogPosts|length %}
+                    <h4>Related Blog Posts</h4>
+                    <ul>
+                        {% for post in entry.relatedBlogPosts.all() %}
+                            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                {% if entry.relatedTravels|length %}
+                    <h4>Related Travels</h4>
+                    <ul>
+                        {% for travel in entry.relatedTravels.all() %}
+                            <li><a href="{{ travel.url }}">{{ travel.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <p style="margin-top: 2rem;">
+            <a href="/photography">← Back to Photography</a>
+        </p>
+    </article>
+{% endblock %}

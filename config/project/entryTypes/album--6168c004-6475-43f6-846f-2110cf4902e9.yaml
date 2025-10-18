@@ -1,7 +1,7 @@
 color: null
 description: null
 fieldLayouts:
-  97111621-f62a-439d-9777-a5900718a0e2:
+  173af91e-9110-4244-a0e6-5c024f473dd1:
     cardThumbAlignment: end
     tabs:
       -
@@ -20,7 +20,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 19fb8caa-0db2-440f-952c-ae967fb295cd
+            uid: 9d2bb7ff-afee-4d5f-9e26-94911e738033
             userCondition: null
             warning: null
             width: 100
@@ -37,7 +37,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3d04badc-a7e5-4a24-ba1e-6fdcb3e770d7
+            uid: ff10416f-71f5-4ed3-a46b-fd3aa02c45fa
             userCondition: null
             warning: null
             width: 100
@@ -45,7 +45,7 @@ fieldLayouts:
             dateAdded: null
             editCondition: null
             elementCondition: null
-            fieldUid: f8369934-e74d-4827-87e1-6610147ec228 # Blog Categories
+            fieldUid: d105b363-6108-4e77-b353-9b3752ebab2d # Location
             handle: null
             includeInCards: false
             instructions: null
@@ -54,74 +54,34 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 72afc436-4b3c-4e74-ba76-7cbab3c1e80e
+            uid: e39a4fa9-790e-4c98-92ac-f674f96b72a1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0819daa-6a14-48c3-9919-4bb45271707a # Date Taken
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2a094c55-0b10-485c-9775-43bec6a92e2e
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 93aa253c-d79c-4fc0-a8d2-dc4f30209ac7
+        uid: f8301bb1-1d58-4742-8341-1bf9a652c516
         userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            fieldUid: 3166e34f-44f7-4855-bf97-2c056d085f88 # Related Creative Projects
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 94a52e18-4541-4fd5-87d4-6529bf91657e
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            fieldUid: 4e8cd156-1f43-4e98-9720-0906a7ce215d # Related Travels
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: ebd4e741-29b0-4800-a108-7b2edd76606a
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: null
-            editCondition: null
-            elementCondition: null
-            fieldUid: acb6679d-257d-41b7-acd1-d344aab953aa # Related Photography Albums
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: e349727d-b50c-449b-8320-f1a511564336
-            userCondition: null
-            warning: null
-            width: 100
-        name: 'Related Content'
-        uid: e5d877a3-7919-4cb4-927e-e84152eb563e
-        userCondition: null
-handle: blogPost
+handle: album
 hasTitleField: false
 icon: null
-name: 'Blog Post'
+name: Album
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

@@ -166,6 +166,23 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: acb6679d-257d-41b7-acd1-d344aab953aa # Related Photography Albums
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 582d51bd-0c90-427f-a1a1-d6fc157a735e
+            userCondition: null
+            warning: null
+            width: 100
         name: 'Related Content'
         uid: bc0e3e34-15f4-4a23-8c7b-696ad8bebfca
         userCondition: null

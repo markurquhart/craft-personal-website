@@ -43,9 +43,17 @@
         </div>
     {% endif %}
 
-    {% if entry.relatedCreativeProjects|length or entry.relatedBlogPosts|length %}
+    {% if entry.relatedCreativeProjects|length or entry.relatedBlogPosts|length or entry.relatedPhotographyAlbums|length %}
         <div class="related">
             <h3>Related Content</h3>
+            {% if entry.relatedPhotographyAlbums|length %}
+                <h4>Related Photography Albums</h4>
+                <ul>
+                    {% for album in entry.relatedPhotographyAlbums.all() %}
+                        <li><a href="{{ album.url }}">{{ album.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
             {% if entry.relatedCreativeProjects|length %}
                 <h4>Related Creative Projects</h4>
                 <ul>
