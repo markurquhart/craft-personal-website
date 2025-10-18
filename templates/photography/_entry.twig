@@ -109,6 +109,15 @@
                 </div>
             {% endif %}
 
+            {# Show locations #}
+            {% if entry.locations|length %}
+                <div style="margin-bottom: 2rem;">
+                    {% for location in entry.locations.all() %}
+                        <a href="{{ location.url }}" class="tag">📍 {{ location.title }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
             {# Show child photos #}
             {% set photos = craft.entries()
                 .section('photography')

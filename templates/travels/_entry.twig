@@ -32,6 +32,15 @@
         </div>
     {% endif %}
 
+    {# Show locations #}
+    {% if entry.locations|length %}
+        <div style="margin: 2rem 0;">
+            {% for location in entry.locations.all() %}
+                <a href="{{ location.url }}" class="tag">📍 {{ location.title }}</a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     {% if entry.gallery|length %}
         <div class="content">
             <h2>Travel Photos</h2>

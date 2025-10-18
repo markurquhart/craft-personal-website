@@ -1,0 +1,194 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <article>
+        {# Breadcrumb navigation #}
+        {% set ancestors = category.ancestors.all() %}
+        <p style="margin-bottom: 1.5rem;">
+            <a href="/">Home</a>
+            {% for ancestor in ancestors %}
+                / <a href="{{ ancestor.url }}">{{ ancestor.title }}</a>
+            {% endfor %}
+            / <strong>{{ category.title }}</strong>
+        </p>
+
+        <h1>📍 {{ category.title }}</h1>
+
+        {% set locationHierarchy = [] %}
+        {% if category.level == 3 %}
+            {# City level - show City, State, Country #}
+            {% set state = category.parent %}
+            {% set country = state ? state.parent : null %}
+            {% if country %}{% set locationHierarchy = locationHierarchy|merge([country.title]) %}{% endif %}
+            {% if state %}{% set locationHierarchy = locationHierarchy|merge([state.title]) %}{% endif %}
+            {% set locationHierarchy = locationHierarchy|merge([category.title]) %}
+        {% elseif category.level == 2 %}
+            {# State level - show State, Country #}
+            {% set country = category.parent %}
+            {% if country %}{% set locationHierarchy = locationHierarchy|merge([country.title]) %}{% endif %}
+            {% set locationHierarchy = locationHierarchy|merge([category.title]) %}
+        {% else %}
+            {# Country level #}
+            {% set locationHierarchy = [category.title] %}
+        {% endif %}
+
+        <p style="margin-bottom: 3rem; font-size: 1.2rem; color: #666;">
+            {{ locationHierarchy|join(', ') }}
+        </p>
+
+        {# Find all content related to this location #}
+
+        {# Photography Albums #}
+        {% set albums = craft.entries()
+            .section('photography')
+            .type('album')
+            .relatedTo(category)
+            .all() %}
+
+        {% if albums|length %}
+            <section style="margin-bottom: 3rem;">
+                <h2>📸 Photography Albums ({{ albums|length }})</h2>
+                <ul class="entry-list">
+                    {% for album in albums %}
+                        <li>
+                            {% if album.featuredImage|length %}
+                                {% set image = album.featuredImage.one() %}
+                                <a href="{{ album.url }}">
+                                    <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                                </a>
+                            {% endif %}
+                            <h3 style="margin-top: 0;"><a href="{{ album.url }}">{{ album.title }}</a></h3>
+                            {% if album.dateTaken %}
+                                <div class="meta">📅 {{ album.dateTaken|date('F j, Y') }}</div>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        {# Blog Posts #}
+        {% set blogPosts = craft.entries()
+            .section('thoughts')
+            .relatedTo(category)
+            .all() %}
+
+        {% if blogPosts|length %}
+            <section style="margin-bottom: 3rem;">
+                <h2>💭 Blog Posts ({{ blogPosts|length }})</h2>
+                <ul class="entry-list">
+                    {% for post in blogPosts %}
+                        <li>
+                            {% if post.featuredImage|length %}
+                                {% set image = post.featuredImage.one() %}
+                                <a href="{{ post.url }}">
+                                    <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                                </a>
+                            {% endif %}
+                            <h3 style="margin-top: 0;"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                            <div class="meta">Published: {{ post.postDate|date('F j, Y') }}</div>
+                            {% if post.description %}
+                                <p>{{ post.description|length > 200 ? post.description|slice(0, 200) ~ '...' : post.description }}</p>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        {# Travels #}
+        {% set travels = craft.entries()
+            .section('travels')
+            .relatedTo(category)
+            .all() %}
+
+        {% if travels|length %}
+            <section style="margin-bottom: 3rem;">
+                <h2>✈️ Travels ({{ travels|length }})</h2>
+                <ul class="entry-list">
+                    {% for travel in travels %}
+                        <li>
+                            {% if travel.featuredImage|length %}
+                                {% set image = travel.featuredImage.one() %}
+                                <a href="{{ travel.url }}">
+                                    <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                                </a>
+                            {% endif %}
+                            <h3 style="margin-top: 0;"><a href="{{ travel.url }}">{{ travel.title }}</a></h3>
+                            <div class="meta">
+                                {% if travel.startDate and travel.endDate %}
+                                    🗓 {{ travel.startDate|date('M j') }} - {{ travel.endDate|date('M j, Y') }}
+                                {% elseif travel.startDate %}
+                                    🗓 {{ travel.startDate|date('F j, Y') }}
+                                {% endif %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        {# Freelance Projects #}
+        {% set projects = craft.entries()
+            .section('freelanceWork')
+            .relatedTo(category)
+            .all() %}
+
+        {% if projects|length %}
+            <section style="margin-bottom: 3rem;">
+                <h2>💼 Freelance Projects ({{ projects|length }})</h2>
+                <ul class="entry-list">
+                    {% for project in projects %}
+                        <li>
+                            {% if project.featuredImage|length %}
+                                {% set image = project.featuredImage.one() %}
+                                <a href="{{ project.url }}">
+                                    <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                                </a>
+                            {% endif %}
+                            <h3 style="margin-top: 0;"><a href="{{ project.url }}">{{ project.title }}</a></h3>
+                            <div class="meta">
+                                {% if project.customer %}Client: {{ project.customer }}{% endif %}
+                                {% if project.deliveryDate %}| Delivered: {{ project.deliveryDate|date('F j, Y') }}{% endif %}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        {# Show child locations if this is a Country or State #}
+        {% set children = craft.categories()
+            .group('locations')
+            .descendantOf(category)
+            .level(category.level + 1)
+            .all() %}
+
+        {% if children|length %}
+            <section style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid #eee;">
+                <h2>
+                    {% if category.level == 1 %}
+                        States/Provinces in {{ category.title }}
+                    {% elseif category.level == 2 %}
+                        Cities in {{ category.title }}
+                    {% endif %}
+                </h2>
+                <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                    {% for child in children %}
+                        <li>
+                            <a href="{{ child.url }}" style="display: block; padding: 1rem; background: #f8f9fa; border-radius: 8px; text-decoration: none; color: #2c3e50;">
+                                {{ child.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+
+        {% if not albums|length and not blogPosts|length and not travels|length and not projects|length and not children|length %}
+            <p style="padding: 3rem; background: #f8f9fa; border-radius: 8px; text-align: center;">
+                No content found for this location yet.
+            </p>
+        {% endif %}
+    </article>
+{% endblock %}

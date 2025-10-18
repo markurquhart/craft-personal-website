@@ -1,4 +1,4 @@
-dateModified: 1760784712
+dateModified: 1760785049
 email:
   fromEmail: admin@example.com
   fromName: 'Personal Website'
@@ -8,6 +8,7 @@ meta:
     1df00815-d4ec-4fcf-9ab9-17af3321f5cb: Contact # Contact
     2cc53a53-7b72-4457-855f-981a8646f2fb: 'Public Schema' # Public Schema
     3c067755-b444-4a37-adf2-129197200614: 'End Date' # End Date
+    3f1e7923-cbe6-48b6-b426-d0f7df1e7a0b: Locations # Locations
     3f639a1c-a692-4669-8e14-3ee859738f87: 'Project Images' # Project Images
     4b2588ed-d246-4db9-8745-fc8f03550046: 'Shutter Speed' # Shutter Speed
     4e8cd156-1f43-4e98-9720-0906a7ce215d: 'Related Travels' # Related Travels
@@ -50,6 +51,7 @@ meta:
     d105b363-6108-4e77-b353-9b3752ebab2d: Location # Location
     e3dc5c42-45c8-4fba-9ea4-bfbdcc692c49: 'Delivery Date' # Delivery Date
     e80cd405-beeb-463e-929c-62b766342ca0: Category # Category
+    ea9ca826-db4e-4253-9bfe-7f9bab695bea: Locations # Locations
     f99e0a9d-12eb-48c0-a2f4-483dfbebaddb: 'Blog Post' # Blog Post
     f256b6a2-bde6-4346-8341-089f299085c9: Photography # Photography
     f847a4de-d05c-499a-aaa4-27a2f47d6091: 'Project Date' # Project Date

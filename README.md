@@ -19,6 +19,7 @@ A modern personal website built with Craft CMS 5, featuring a sophisticated cont
 - **Static Pages** - Home, About, and Contact pages
 
 ### Key Features
+- **Location-based organization** - Hierarchical location system (Country → State/Province → City) that links all content by place
 - Bi-directional content relationships (link blog posts, photography albums, and travels)
 - Category taxonomies for photography and blog posts
 - Photo galleries with metadata
@@ -126,11 +127,25 @@ craft-personal-website/
 - **Travels** (Channel) - Travel experiences
 
 ### Custom Fields
+- **Locations** - Hierarchical categories (Country → State/Province → City) used across all content types
 - Photography metadata (Date Taken, Location, Camera, Lens, ISO, Aperture, Shutter Speed)
 - Freelance work fields (Project Type, Customer, Delivery Date, Project Images)
 - Travel details (Destination, Start Date, End Date, Travel Type)
 - Media (Featured Image, Gallery)
 - Relationships (Related Blog Posts, Related Travels, Related Photography Albums)
+
+### Location System
+The site features a powerful 3-level location taxonomy:
+- **Level 1**: Countries (USA, Netherlands, Japan, etc.)
+- **Level 2**: States/Provinces (Massachusetts, North Holland, etc.)
+- **Level 3**: Cities (Boston, Amsterdam, Tokyo, etc.)
+
+All content types (Photography Albums, Freelance Projects, Blog Posts, Travels) can be tagged with locations. This creates an amazing browsing experience where users can:
+- Visit `/locations/usa/massachusetts/boston` to see all content from Boston
+- Browse all countries, then drill down to states and cities
+- See everything you've created in a specific place across all content types
+
+Example: A blog post about a trip to Boston links to photography albums from Boston, which link to travel entries, creating a rich, interconnected experience organized by place.
 
 ### Entry Types
 - **Category** - Photography categories like Sports, City, Wildlife (Level 1 in Photography structure)
