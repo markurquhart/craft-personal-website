@@ -3,31 +3,31 @@
 {% block content %}
     <h1>Photography</h1>
 
-    <p style="margin-bottom: 2rem;">Browse my photography by category.</p>
+    <p style="margin-bottom: 2rem;">Browse my photography by genre.</p>
 
-    {% set categories = craft.entries()
+    {% set genres = craft.entries()
         .section('photography')
-        .type('category')
+        .type('genre')
         .level(1)
         .orderBy('title ASC')
         .all() %}
 
-    {% if categories|length %}
+    {% if genres|length %}
         <ul class="entry-list">
-            {% for category in categories %}
+            {% for genre in genres %}
                 <li>
-                    {% if category.featuredImage|length %}
-                        {% set image = category.featuredImage.one() %}
+                    {% if genre.featuredImage|length %}
+                        {% set image = genre.featuredImage.one() %}
                         <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
                     {% endif %}
 
-                    <h3><a href="{{ category.url }}">{{ category.title }}</a></h3>
+                    <h3><a href="{{ genre.url }}">{{ genre.title }}</a></h3>
 
                     <div class="meta">
                         {% set albumCount = craft.entries()
                             .section('photography')
                             .type('album')
-                            .descendantOf(category)
+                            .descendantOf(genre)
                             .count() %}
                         {% if albumCount %}
                             📁 {{ albumCount }} album{{ albumCount != 1 ? 's' : '' }}
@@ -36,22 +36,22 @@
                         {% set photoCount = craft.entries()
                             .section('photography')
                             .type('photo')
-                            .descendantOf(category)
+                            .descendantOf(genre)
                             .count() %}
                         {% if photoCount %}
                             | 📸 {{ photoCount }} photo{{ photoCount != 1 ? 's' : '' }}
                         {% endif %}
                     </div>
 
-                    {% if category.description %}
-                        <p>{{ category.description|length > 250 ? category.description|slice(0, 250) ~ '...' : category.description }}</p>
+                    {% if genre.description %}
+                        <p>{{ genre.description|length > 250 ? genre.description|slice(0, 250) ~ '...' : genre.description }}</p>
                     {% endif %}
                 </li>
             {% endfor %}
         </ul>
     {% else %}
         <p style="padding: 2rem; background: #f8f9fa; border-radius: 8px; text-align: center;">
-            No photography categories yet. Create some in the Craft control panel!
+            No photography genres yet. Create some in the Craft control panel!
         </p>
     {% endif %}
 {% endblock %}

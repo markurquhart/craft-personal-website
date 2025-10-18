@@ -148,7 +148,7 @@ All content types (Photography Albums, Freelance Projects, Blog Posts, Travels) 
 Example: A blog post about a trip to Boston links to photography albums from Boston, which link to travel entries, creating a rich, interconnected experience organized by place.
 
 ### Entry Types
-- **Category** - Photography categories like Sports, City, Wildlife (Level 1 in Photography structure)
+- **Genre** - Photography genres like Sports, City, Wildlife, Outdoors (Level 1 in Photography structure)
 - **Album** - Photo album collections with location and date (Level 2 in Photography structure)
 - **Photo** - Individual photos with EXIF data (Level 3 in Photography structure)
 - **Freelance Project** - Client work and deliverables

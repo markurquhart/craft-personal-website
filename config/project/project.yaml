@@ -1,4 +1,4 @@
-dateModified: 1760785049
+dateModified: 1760785302
 email:
   fromEmail: admin@example.com
   fromName: 'Personal Website'
@@ -50,7 +50,7 @@ meta:
     d75d67e6-4642-47be-9a66-35a1b93482da: Technologies # Technologies
     d105b363-6108-4e77-b353-9b3752ebab2d: Location # Location
     e3dc5c42-45c8-4fba-9ea4-bfbdcc692c49: 'Delivery Date' # Delivery Date
-    e80cd405-beeb-463e-929c-62b766342ca0: Category # Category
+    e80cd405-beeb-463e-929c-62b766342ca0: Genre # Genre
     ea9ca826-db4e-4253-9bfe-7f9bab695bea: Locations # Locations
     f99e0a9d-12eb-48c0-a2f4-483dfbebaddb: 'Blog Post' # Blog Post
     f256b6a2-bde6-4346-8341-089f299085c9: Photography # Photography

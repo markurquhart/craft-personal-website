@@ -6,7 +6,7 @@ entryTypes:
   -
     uid: a7c2870d-87a1-4e8f-a876-8444944dfd66 # Photo
   -
-    uid: e80cd405-beeb-463e-929c-62b766342ca0 # Category
+    uid: e80cd405-beeb-463e-929c-62b766342ca0 # Genre
 handle: photography
 maxAuthors: 1
 name: Photography

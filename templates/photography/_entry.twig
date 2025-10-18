@@ -4,8 +4,8 @@
     <article>
         <h1>{{ entry.title }}</h1>
 
-        {% if entry.type.handle == 'category' %}
-            {# Category View - Show albums in this category #}
+        {% if entry.type.handle == 'genre' %}
+            {# Genre View - Show albums in this genre #}
 
             <div style="margin-bottom: 2rem;">
                 {% if entry.featuredImage|length %}
@@ -29,7 +29,7 @@
                 .all() %}
 
             {% if albums|length %}
-                <h2 style="margin-top: 3rem; margin-bottom: 1.5rem;">Albums in {{ entry.title }}</h2>
+                <h2 style="margin-top: 3rem; margin-bottom: 1.5rem;">Albums in {{ entry.title }} Genre</h2>
 
                 <ul class="entry-list">
                     {% for album in albums %}
@@ -74,14 +74,14 @@
                 </ul>
             {% else %}
                 <p style="padding: 2rem; background: #f8f9fa; border-radius: 8px; text-align: center; margin-top: 2rem;">
-                    No albums in this category yet.
+                    No albums in this genre yet.
                 </p>
             {% endif %}
 
         {% elseif entry.type.handle == 'album' %}
             {# Album View - Show album details and child photos #}
 
-            {# Breadcrumb to parent category #}
+            {# Breadcrumb to parent genre #}
             {% set parent = entry.parent %}
             {% if parent %}
                 <p style="margin-bottom: 1rem;">
@@ -160,14 +160,14 @@
         {% elseif entry.type.handle == 'photo' %}
             {# Individual Photo View - Show EXIF data #}
 
-            {# Breadcrumb: Photography → Category → Album → Photo #}
+            {# Breadcrumb: Photography → Genre → Album → Photo #}
             {% set album = entry.parent %}
             {% if album %}
-                {% set category = album.parent %}
+                {% set genre = album.parent %}
                 <p style="margin-bottom: 1rem;">
                     <a href="/photography">← Photography</a>
-                    {% if category %}
-                        / <a href="{{ category.url }}">{{ category.title }}</a>
+                    {% if genre %}
+                        / <a href="{{ genre.url }}">{{ genre.title }}</a>
                     {% endif %}
                     / <a href="{{ album.url }}">{{ album.title }}</a>
                 </p>

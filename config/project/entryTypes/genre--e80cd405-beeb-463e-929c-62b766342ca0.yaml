@@ -44,10 +44,10 @@ fieldLayouts:
         name: Content
         uid: 4dd22da1-5a0b-4b8e-b7b5-714732b7dba2
         userCondition: null
-handle: category
+handle: genre
 hasTitleField: false
 icon: null
-name: Category
+name: Genre
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
