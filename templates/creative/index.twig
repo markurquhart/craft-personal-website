@@ -1,0 +1,53 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <h1>Creative Projects</h1>
+
+    <p style="margin-bottom: 2rem;">A showcase of my photography, web development, and graphic design work.</p>
+
+    {% set creativeEntries = craft.entries()
+        .section('creativeProjects')
+        .orderBy('postDate DESC')
+        .all() %}
+
+    {% if creativeEntries|length %}
+        <ul class="entry-list">
+            {% for entry in creativeEntries %}
+                <li>
+                    {% if entry.featuredImage|length %}
+                        {% set image = entry.featuredImage.one() %}
+                        <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                    {% endif %}
+
+                    <h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+
+                    <div class="meta">
+                        Type: <strong>{{ entry.type.name }}</strong>
+                        {% if entry.projectDate %}
+                            | {{ entry.projectDate|date('F Y') }}
+                        {% endif %}
+                        {% if entry.client %}
+                            | Client: {{ entry.client }}
+                        {% endif %}
+                    </div>
+
+                    {% if entry.description %}
+                        <p>{{ entry.description|length > 200 ? entry.description|slice(0, 200) ~ '...' : entry.description }}</p>
+                    {% endif %}
+
+                    {% if entry.creativeCategories|length %}
+                        <div>
+                            {% for category in entry.creativeCategories.all() %}
+                                <a href="/creative/category/{{ category.slug }}" class="tag">{{ category.title }}</a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="padding: 2rem; background: #f8f9fa; border-radius: 8px; text-align: center;">
+            No creative projects yet. Create some in the Craft control panel!
+        </p>
+    {% endif %}
+{% endblock %}

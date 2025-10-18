@@ -1,0 +1,227 @@
+color: null
+description: null
+fieldLayouts:
+  26227b2e-1cfa-4c39-ac9f-b4faecd3b33c:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 70395f0a-cf4d-437f-91a5-3d65d785bbe2 # Featured Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9a2d97a7-8716-426c-ada7-a716724d0ef2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 85343b01-dd3a-4e2e-a63c-1fc064dce929 # Gallery
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b32c1e76-3bb9-4094-a4f2-8eb7a1a3bb4d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 8438e27f-4863-4220-a584-8d088ce182ab # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 87704db1-30bf-47af-8398-1cc77be62ae5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0819daa-6a14-48c3-9919-4bb45271707a # Date Taken
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a3936cb5-ceff-4b34-965a-06aba5d3a686
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: d105b363-6108-4e77-b353-9b3752ebab2d # Location
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 825faba0-d629-4ac1-a098-afab18a34d8a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4efe193b-51c1-4707-b83e-1c9ca2f7e662 # Camera
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 87e1bf68-783b-40cd-87b0-6fa541cd8011
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 83d16854-51ce-4f2b-a110-a12b821f2009 # Lens
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 46d48e3e-fed4-4cf2-b693-41a869d37864
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: cf62c2e2-7139-4fb5-b42d-1d62e0308657 # ISO
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: de1535ab-6027-47c4-a5cc-900a86a8d045
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 24ccf80e-d905-48a2-8c89-a0f39c35e096 # Aperture
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: eedf5b1b-eb1c-45e3-95e2-2e86404c1cd9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 4b2588ed-d246-4db9-8745-fc8f03550046 # Shutter Speed
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 55b1ba90-4c29-45ca-a750-e8c5ec677c47
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: f847a4de-d05c-499a-aaa4-27a2f47d6091 # Project Date
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 79d20aec-a4cd-421d-85c4-82ec37b438df
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 76358275-968c-4a0c-a3ec-6368095a2670 # Creative Categories
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d0c44c7d-bb59-4d65-ba93-4266758ba7d5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 8f742a37-e483-4508-8ee2-561d6bd9ef55
+        userCondition: null
+handle: photographyProject
+hasTitleField: false
+icon: null
+name: 'Photography Project'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

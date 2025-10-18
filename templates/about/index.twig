@@ -1,0 +1,18 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <h1>{{ entry.title }}</h1>
+
+    <div class="content">
+        {{ entry.description }}
+    </div>
+
+    {% if entry.featuredImage|length %}
+        <div class="featured-image" style="margin: 2rem 0;">
+            {% set image = entry.featuredImage.one() %}
+            {% if image %}
+                <img src="{{ image.url }}" alt="{{ image.title }}" style="max-width: 100%; height: auto;">
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

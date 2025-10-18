@@ -1,0 +1,13 @@
+color: null
+description: null
+handle: about
+hasTitleField: false
+icon: null
+name: About
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

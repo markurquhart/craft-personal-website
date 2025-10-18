@@ -1,0 +1,27 @@
+# Craft CMS
+/.env
+/vendor/
+/storage/runtime/
+/storage/logs/
+/storage/backups/
+/storage/config-backups/
+/web/cpresources/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Composer
+composer.phar

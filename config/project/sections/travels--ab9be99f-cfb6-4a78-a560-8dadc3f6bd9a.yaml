@@ -1,0 +1,20 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 3566b6f3-69af-4a3c-8666-914400c9ec2c # Travel Entry
+handle: travels
+maxAuthors: 1
+name: Travels
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  6e605420-9aed-4e3a-92c7-085d0befa62c: # Personal Website
+    enabledByDefault: true
+    hasUrls: true
+    template: travels/_entry
+    uriFormat: 'travels/{slug}'
+type: channel

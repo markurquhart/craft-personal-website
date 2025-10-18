@@ -1,0 +1,67 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <h1>{{ entry.title }}</h1>
+
+    <div class="meta">
+        {% if entry.destination %}
+            <span>📍 {{ entry.destination }}</span>
+        {% endif %}
+        {% if entry.startDate and entry.endDate %}
+            | <span>🗓 {{ entry.startDate|date('M j') }} - {{ entry.endDate|date('M j, Y') }}</span>
+        {% elseif entry.startDate %}
+            | <span>🗓 {{ entry.startDate|date('F j, Y') }}</span>
+        {% endif %}
+        {% if entry.travelType %}
+            | <span>{{ entry.travelType }}</span>
+        {% endif %}
+    </div>
+
+    {% if entry.featuredImage|length %}
+        <div class="featured-image" style="margin: 2rem 0;">
+            {% set image = entry.featuredImage.one() %}
+            {% if image %}
+                <img src="{{ image.url }}" alt="{{ image.title }}" style="max-width: 100%; height: auto; border-radius: 8px;">
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if entry.description %}
+        <div class="content">
+            {{ entry.description }}
+        </div>
+    {% endif %}
+
+    {% if entry.gallery|length %}
+        <div class="content">
+            <h2>Travel Photos</h2>
+            <div class="gallery">
+                {% for image in entry.gallery.all() %}
+                    <img src="{{ image.url }}" alt="{{ image.title }}">
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if entry.relatedCreativeProjects|length or entry.relatedBlogPosts|length %}
+        <div class="related">
+            <h3>Related Content</h3>
+            {% if entry.relatedCreativeProjects|length %}
+                <h4>Related Creative Projects</h4>
+                <ul>
+                    {% for project in entry.relatedCreativeProjects.all() %}
+                        <li><a href="{{ project.url }}">{{ project.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if entry.relatedBlogPosts|length %}
+                <h4>Related Blog Posts</h4>
+                <ul>
+                    {% for post in entry.relatedBlogPosts.all() %}
+                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

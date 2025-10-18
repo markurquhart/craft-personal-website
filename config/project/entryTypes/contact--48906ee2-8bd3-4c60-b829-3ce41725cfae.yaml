@@ -1,0 +1,13 @@
+color: null
+description: null
+handle: contact
+hasTitleField: false
+icon: null
+name: Contact
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

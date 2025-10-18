@@ -1,0 +1,114 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <h1>{{ entry.title }}</h1>
+
+    <div class="meta">
+        <span>Type: <strong>{{ entry.type.name }}</strong></span>
+        {% if entry.projectDate %}
+            | <span>Date: {{ entry.projectDate|date('F Y') }}</span>
+        {% endif %}
+        {% if entry.client %}
+            | <span>Client: {{ entry.client }}</span>
+        {% endif %}
+    </div>
+
+    {% if entry.featuredImage|length %}
+        <div class="featured-image" style="margin: 2rem 0;">
+            {% set image = entry.featuredImage.one() %}
+            {% if image %}
+                <img src="{{ image.url }}" alt="{{ image.title }}" style="max-width: 100%; height: auto; border-radius: 8px;">
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if entry.description %}
+        <div class="content">
+            <h2>Description</h2>
+            {{ entry.description }}
+        </div>
+    {% endif %}
+
+    {# Photography-specific fields #}
+    {% if entry.type.handle == 'photographyProject' %}
+        {% if entry.dateTaken or entry.photoLocation or entry.camera %}
+            <div class="categories">
+                <h3>Photo Details</h3>
+                {% if entry.dateTaken %}<p><strong>Date Taken:</strong> {{ entry.dateTaken|date('F j, Y') }}</p>{% endif %}
+                {% if entry.photoLocation %}<p><strong>Location:</strong> {{ entry.photoLocation }}</p>{% endif %}
+                {% if entry.camera %}<p><strong>Camera:</strong> {{ entry.camera }}</p>{% endif %}
+                {% if entry.lens %}<p><strong>Lens:</strong> {{ entry.lens }}</p>{% endif %}
+                {% if entry.iso %}<p><strong>ISO:</strong> {{ entry.iso }}</p>{% endif %}
+                {% if entry.aperture %}<p><strong>Aperture:</strong> {{ entry.aperture }}</p>{% endif %}
+                {% if entry.shutterSpeed %}<p><strong>Shutter Speed:</strong> {{ entry.shutterSpeed }}</p>{% endif %}
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {# Website-specific fields #}
+    {% if entry.type.handle == 'websiteProject' %}
+        {% if entry.technologies %}
+            <div class="categories">
+                <h3>Technologies Used</h3>
+                <p>{{ entry.technologies }}</p>
+            </div>
+        {% endif %}
+        {% if entry.projectUrl %}
+            <div style="margin: 1rem 0;">
+                <a href="{{ entry.projectUrl }}" target="_blank" class="tag" style="background: #27ae60;">Visit Project →</a>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {# Graphic Design-specific fields #}
+    {% if entry.type.handle == 'graphicDesignProject' %}
+        {% if entry.technologies %}
+            <div class="categories">
+                <h3>Tools & Software</h3>
+                <p>{{ entry.technologies }}</p>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if entry.gallery|length %}
+        <div class="content">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                {% for image in entry.gallery.all() %}
+                    <img src="{{ image.url }}" alt="{{ image.title }}">
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if entry.creativeCategories|length %}
+        <div class="categories">
+            <h3>Categories</h3>
+            {% for category in entry.creativeCategories.all() %}
+                <a href="/creative/category/{{ category.slug }}" class="tag">{{ category.title }}</a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if entry.relatedBlogPosts|length or entry.relatedTravels|length %}
+        <div class="related">
+            <h3>Related Content</h3>
+            {% if entry.relatedBlogPosts|length %}
+                <h4>Related Blog Posts</h4>
+                <ul>
+                    {% for post in entry.relatedBlogPosts.all() %}
+                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if entry.relatedTravels|length %}
+                <h4>Related Travels</h4>
+                <ul>
+                    {% for travel in entry.relatedTravels.all() %}
+                        <li><a href="{{ travel.url }}">{{ travel.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

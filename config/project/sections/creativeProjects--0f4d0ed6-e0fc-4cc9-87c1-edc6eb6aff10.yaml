@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 8141cc27-e55a-4aae-8cfd-ce93d54c0254 # Photography Project
+  -
+    uid: 5928f4b9-741d-4c82-81a8-74bbf54bc5c2 # Website Project
+  -
+    uid: 344bdf69-27c9-4ce4-a72a-5be8bc8bfef6 # Graphic Design Project
+handle: creativeProjects
+maxAuthors: 1
+name: 'Creative Projects'
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  6e605420-9aed-4e3a-92c7-085d0befa62c: # Personal Website
+    enabledByDefault: true
+    hasUrls: true
+    template: creative/_entry
+    uriFormat: 'creative/{slug}'
+type: channel

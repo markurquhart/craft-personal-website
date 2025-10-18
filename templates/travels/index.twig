@@ -1,0 +1,49 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <h1>Travels</h1>
+
+    <p style="margin-bottom: 2rem;">My travel adventures around the world.</p>
+
+    {% set travelEntries = craft.entries()
+        .section('travels')
+        .orderBy('startDate DESC')
+        .all() %}
+
+    {% if travelEntries|length %}
+        <ul class="entry-list">
+            {% for entry in travelEntries %}
+                <li>
+                    {% if entry.featuredImage|length %}
+                        {% set image = entry.featuredImage.one() %}
+                        <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                    {% endif %}
+
+                    <h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+
+                    <div class="meta">
+                        {% if entry.destination %}
+                            📍 {{ entry.destination }}
+                        {% endif %}
+                        {% if entry.startDate and entry.endDate %}
+                            | 🗓 {{ entry.startDate|date('M j') }} - {{ entry.endDate|date('M j, Y') }}
+                        {% elseif entry.startDate %}
+                            | 🗓 {{ entry.startDate|date('F j, Y') }}
+                        {% endif %}
+                        {% if entry.travelType %}
+                            | {{ entry.travelType }}
+                        {% endif %}
+                    </div>
+
+                    {% if entry.description %}
+                        <p>{{ entry.description|length > 250 ? entry.description|slice(0, 250) ~ '...' : entry.description }}</p>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="padding: 2rem; background: #f8f9fa; border-radius: 8px; text-align: center;">
+            No travel entries yet. Create some in the Craft control panel!
+        </p>
+    {% endif %}
+{% endblock %}

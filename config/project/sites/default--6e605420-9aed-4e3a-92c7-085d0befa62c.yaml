@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en-US
+name: 'Personal Website'
+primary: true
+siteGroup: 96b56c34-1669-47ea-85e3-1441e275ef5e # Personal Website
+sortOrder: 1

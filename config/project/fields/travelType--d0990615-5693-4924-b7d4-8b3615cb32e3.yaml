@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: travelType
+instructions: null
+name: 'Travel Type'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Family Vacation'
+        -
+          - value
+          - family
+        -
+          - default
+          - false
+    -
+      __assoc__:
+        -
+          - label
+          - 'Personal Travel'
+        -
+          - value
+          - personal
+        -
+          - default
+          - false
+    -
+      __assoc__:
+        -
+          - label
+          - 'Work Travel'
+        -
+          - value
+          - work
+        -
+          - default
+          - false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

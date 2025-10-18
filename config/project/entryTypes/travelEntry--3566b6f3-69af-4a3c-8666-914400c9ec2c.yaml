@@ -1,0 +1,182 @@
+color: null
+description: null
+fieldLayouts:
+  7f777679-26db-418a-8dd7-bcf780d6c5fd:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 70395f0a-cf4d-437f-91a5-3d65d785bbe2 # Featured Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f6612874-21a4-41a9-8d0e-1690238518d4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 85343b01-dd3a-4e2e-a63c-1fc064dce929 # Gallery
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4bda92ad-5997-4317-bd37-37dbc2ea7384
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 8438e27f-4863-4220-a584-8d088ce182ab # Description
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ec92a3d0-c63b-4492-9e8c-3514ddb2ad39
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 198ec77f-5441-43c2-831d-fffa10b5cbd9 # Destination
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b5b5afaf-5288-4f2b-bf51-8a16ff7f65f9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: cacb184b-95dc-48ac-bed0-0e2c13f58419 # Start Date
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3d1349fa-1155-40e0-9aae-4acbf7585a70
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3c067755-b444-4a37-adf2-129197200614 # End Date
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4eb2d02f-10af-40cc-9919-d7d514813fd0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: d0990615-5693-4924-b7d4-8b3615cb32e3 # Travel Type
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 998d3184-2de3-4591-bb34-a7c46c054e89
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 22a22151-7a9a-43ce-8ca3-6341104e7f21
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3166e34f-44f7-4855-bf97-2c056d085f88 # Related Creative Projects
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 114b2b5a-6a66-41f9-82d8-483fc7fb232b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            fieldUid: d5c22496-2393-47c4-823d-6c4a9b0acd75 # Related Blog Posts
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 02adb851-b675-49f4-a197-62c3c8365580
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Related Content'
+        uid: bc0e3e34-15f4-4a23-8c7b-696ad8bebfca
+        userCondition: null
+handle: travelEntry
+hasTitleField: false
+icon: null
+name: 'Travel Entry'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

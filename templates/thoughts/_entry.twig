@@ -1,0 +1,58 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <h1>{{ entry.title }}</h1>
+
+    <div class="meta">
+        <span>Published: {{ entry.postDate|date('F j, Y') }}</span>
+        {% if entry.author %}
+            | <span>By {{ entry.author }}</span>
+        {% endif %}
+    </div>
+
+    {% if entry.featuredImage|length %}
+        <div class="featured-image" style="margin: 2rem 0;">
+            {% set image = entry.featuredImage.one() %}
+            {% if image %}
+                <img src="{{ image.url }}" alt="{{ image.title }}" style="max-width: 100%; height: auto; border-radius: 8px;">
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if entry.description %}
+        <div class="content">
+            {{ entry.description }}
+        </div>
+    {% endif %}
+
+    {% if entry.blogCategories|length %}
+        <div class="categories">
+            <h3>Categories</h3>
+            {% for category in entry.blogCategories.all() %}
+                <a href="/thoughts/category/{{ category.slug }}" class="tag">{{ category.title }}</a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if entry.relatedCreativeProjects|length or entry.relatedTravels|length %}
+        <div class="related">
+            <h3>Related Content</h3>
+            {% if entry.relatedCreativeProjects|length %}
+                <h4>Related Creative Projects</h4>
+                <ul>
+                    {% for project in entry.relatedCreativeProjects.all() %}
+                        <li><a href="{{ project.url }}">{{ project.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if entry.relatedTravels|length %}
+                <h4>Related Travels</h4>
+                <ul>
+                    {% for travel in entry.relatedTravels.all() %}
+                        <li><a href="{{ travel.url }}">{{ travel.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
