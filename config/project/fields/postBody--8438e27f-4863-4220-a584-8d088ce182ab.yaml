@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: description
+handle: postBody
 instructions: null
-name: Description
+name: 'Post Body'
 searchable: false
 settings:
   byteLimit: null

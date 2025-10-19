@@ -8,7 +8,7 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            dateAdded: null
+            dateAdded: '2025-10-19T01:18:01+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 70395f0a-cf4d-437f-91a5-3d65d785bbe2 # Featured Image
@@ -25,10 +25,27 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: null
+            dateAdded: '2025-10-19T01:19:26+00:00'
             editCondition: null
             elementCondition: null
-            fieldUid: 8438e27f-4863-4220-a584-8d088ce182ab # Description
+            fieldUid: e9239899-3d1b-43b5-9e01-b3e860ef5cde # Post Summary
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 162716c1-f41e-4aed-9ff8-1c703f3b9200
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-10-19T01:18:01+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 8438e27f-4863-4220-a584-8d088ce182ab # Post Body
             handle: null
             includeInCards: false
             instructions: null
@@ -42,7 +59,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: null
+            dateAdded: '2025-10-19T01:18:01+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: f8369934-e74d-4827-87e1-6610147ec228 # Blog Categories
@@ -59,7 +76,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: null
+            dateAdded: '2025-10-19T01:18:01+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 3f1e7923-cbe6-48b6-b426-d0f7df1e7a0b # Locations
@@ -82,7 +99,7 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            dateAdded: null
+            dateAdded: '2025-10-19T01:18:01+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 3166e34f-44f7-4855-bf97-2c056d085f88
@@ -99,7 +116,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: null
+            dateAdded: '2025-10-19T01:18:01+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: 4e8cd156-1f43-4e98-9720-0906a7ce215d # Related Travels
@@ -116,7 +133,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: null
+            dateAdded: '2025-10-19T01:18:01+00:00'
             editCondition: null
             elementCondition: null
             fieldUid: acb6679d-257d-41b7-acd1-d344aab953aa # Related Photography Albums

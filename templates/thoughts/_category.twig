@@ -1,0 +1,60 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+    <article>
+        {# Breadcrumb navigation #}
+        <p style="margin-bottom: 1.5rem;">
+            <a href="/">Home</a> / <a href="/thoughts">Thoughts</a> / <strong>{{ category.title }}</strong>
+        </p>
+
+        <h1>💭 {{ category.title }}</h1>
+
+        <p style="margin-bottom: 3rem; font-size: 1.2rem; color: #666;">
+            Blog posts in this category
+        </p>
+
+        {# Get all blog posts in this category #}
+        {% set posts = craft.entries()
+            .section('thoughts')
+            .relatedTo(category)
+            .orderBy('postDate desc')
+            .all() %}
+
+        {% if posts|length %}
+            <ul class="entry-list">
+                {% for post in posts %}
+                    <li>
+                        {% if post.featuredImage|length %}
+                            {% set image = post.featuredImage.one() %}
+                            <a href="{{ post.url }}">
+                                <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                            </a>
+                        {% endif %}
+                        <h2 style="margin-top: 0;"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                        <div class="meta" style="color: #666; margin-bottom: 1rem;">
+                            📅 {{ post.postDate|date('F j, Y') }}
+                            {% if post.locations|length %}
+                                {% set location = post.locations.one() %}
+                                | 📍 <a href="{{ location.url }}">{{ location.title }}</a>
+                            {% endif %}
+                        </div>
+                        {% if post.summary %}
+                            <p>{{ post.summary }}</p>
+                        {% elseif post.postBody %}
+                            <p>{{ post.postBody|length > 300 ? post.postBody|slice(0, 300) ~ '...' : post.postBody }}</p>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p style="padding: 3rem; background: #f8f9fa; border-radius: 8px; text-align: center;">
+                No blog posts in this category yet.
+            </p>
+        {% endif %}
+
+        {# Link back to all thoughts #}
+        <p style="margin-top: 3rem;">
+            <a href="/thoughts">← Back to all thoughts</a>
+        </p>
+    </article>
+{% endblock %}

@@ -4,11 +4,7 @@
     <h1>{{ entry.title ?? 'Welcome' }}</h1>
 
     <div class="content">
-        {% if entry and entry.description %}
-            {{ entry.description }}
-        {% else %}
-            <p>Welcome to my personal website! This is a personal branding hub showcasing my photography, freelance work, creative projects, thoughts, and travels.</p>
-        {% endif %}
+        <p>Welcome to my personal website! This is a personal branding hub showcasing my photography, freelance work, creative projects, thoughts, and travels.</p>
     </div>
 
     {% if entry.featuredImage|length %}

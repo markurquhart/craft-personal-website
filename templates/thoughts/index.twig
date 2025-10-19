@@ -25,8 +25,10 @@
                         Published: {{ entry.postDate|date('F j, Y') }}
                     </div>
 
-                    {% if entry.description %}
-                        <p>{{ entry.description|length > 250 ? entry.description|slice(0, 250) ~ '...' : entry.description }}</p>
+                    {% if entry.summary %}
+                        <p>{{ entry.summary }}</p>
+                    {% elseif entry.postBody %}
+                        <p>{{ entry.postBody|length > 250 ? entry.postBody|slice(0, 250) ~ '...' : entry.postBody }}</p>
                     {% endif %}
 
                     {% if entry.blogCategories|length %}

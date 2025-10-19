@@ -11,7 +11,7 @@ settings:
     - image
   branchLimit: null
   defaultPlacement: end
-  defaultUploadLocationSource: null
+  defaultUploadLocationSource: 'volume:192e1e3e-028e-4845-9f77-141de9fafcbf' # Images
   defaultUploadLocationSubpath: null
   maintainHierarchy: false
   maxRelations: 1
@@ -20,18 +20,18 @@ settings:
   restrictFiles: true
   restrictLocation: false
   restrictedDefaultUploadSubpath: null
-  restrictedLocationSource: null
+  restrictedLocationSource: 'volume:192e1e3e-028e-4845-9f77-141de9fafcbf' # Images
   restrictedLocationSubpath: null
   selectionLabel: null
   showCardsInGrid: false
   showSearchInput: true
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false
-  viewMode: null
+  viewMode: list
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Assets

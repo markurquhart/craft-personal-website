@@ -19,9 +19,15 @@
         </div>
     {% endif %}
 
-    {% if entry.description %}
+    {% if entry.summary %}
+        <div class="summary" style="font-size: 1.1rem; color: #666; margin: 1.5rem 0;">
+            {{ entry.summary }}
+        </div>
+    {% endif %}
+
+    {% if entry.postBody %}
         <div class="content">
-            {{ entry.description }}
+            {{ entry.postBody }}
         </div>
     {% endif %}
 

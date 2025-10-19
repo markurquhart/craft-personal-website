@@ -1,8 +1,16 @@
-dateModified: 1760785302
+dateModified: 1760836766
 email:
   fromEmail: admin@example.com
   fromName: 'Personal Website'
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  uploads--1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d:
+    hasUrls: false
+    name: Uploads
+    settings:
+      path: '@webroot/uploads'
+    type: craft\fs\Local
+    url: '@web/uploads'
 meta:
   __names__:
     1df00815-d4ec-4fcf-9ab9-17af3321f5cb: Contact # Contact
@@ -21,13 +29,14 @@ meta:
     24ccf80e-d905-48a2-8c89-a0f39c35e096: Aperture # Aperture
     83d16854-51ce-4f2b-a110-a12b821f2009: Lens # Lens
     96b56c34-1669-47ea-85e3-1441e275ef5e: 'Personal Website' # Personal Website
+    192e1e3e-028e-4845-9f77-141de9fafcbf: Images # Images
     198ec77f-5441-43c2-831d-fffa10b5cbd9: Destination # Destination
     274ddf00-152f-4298-b17d-8702d2121230: About # About
     344bdf69-27c9-4ce4-a72a-5be8bc8bfef6: 'Graphic Design Project' # Graphic Design Project
     3566b6f3-69af-4a3c-8666-914400c9ec2c: 'Travel Entry' # Travel Entry
     5928f4b9-741d-4c82-81a8-74bbf54bc5c2: 'Website Project' # Website Project
     6168c004-6475-43f6-846f-2110cf4902e9: Album # Album
-    8438e27f-4863-4220-a584-8d088ce182ab: Description # Description
+    8438e27f-4863-4220-a584-8d088ce182ab: 'Post Body' # Post Body
     8856cbd1-2d70-4498-8c89-0deee5fb2335: Home # Home
     48906ee2-8bd3-4c60-b829-3ce41725cfae: Contact # Contact
     70395f0a-cf4d-437f-91a5-3d65d785bbe2: 'Featured Image' # Featured Image
@@ -51,6 +60,7 @@ meta:
     d105b363-6108-4e77-b353-9b3752ebab2d: Location # Location
     e3dc5c42-45c8-4fba-9ea4-bfbdcc692c49: 'Delivery Date' # Delivery Date
     e80cd405-beeb-463e-929c-62b766342ca0: Genre # Genre
+    e9239899-3d1b-43b5-9e01-b3e860ef5cde: 'Post Summary' # Post Summary
     ea9ca826-db4e-4253-9bfe-7f9bab695bea: Locations # Locations
     f99e0a9d-12eb-48c0-a2f4-483dfbebaddb: 'Blog Post' # Blog Post
     f256b6a2-bde6-4346-8341-089f299085c9: Photography # Photography

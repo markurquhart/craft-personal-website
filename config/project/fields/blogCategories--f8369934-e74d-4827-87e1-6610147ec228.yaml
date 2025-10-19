@@ -14,7 +14,7 @@ settings:
   showCardsInGrid: false
   showSearchInput: true
   showSiteMenu: false
-  source: null
+  source: 'group:a4f67cff-ed01-43e6-b5cf-1867fcfe36a6' # Blog Categories
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null
