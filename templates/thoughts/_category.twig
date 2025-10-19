@@ -38,8 +38,8 @@
                                 | 📍 <a href="{{ location.url }}">{{ location.title }}</a>
                             {% endif %}
                         </div>
-                        {% if post.summary %}
-                            <p>{{ post.summary }}</p>
+                        {% if post.postSummary %}
+                            <p>{{ post.postSummary }}</p>
                         {% elseif post.postBody %}
                             <p>{{ post.postBody|length > 300 ? post.postBody|slice(0, 300) ~ '...' : post.postBody }}</p>
                         {% endif %}

@@ -26,9 +26,9 @@
         </div>
     {% endif %}
 
-    {% if entry.description %}
+    {% if entry.postBody %}
         <div class="content">
-            {{ entry.description }}
+            {{ entry.postBody }}
         </div>
     {% endif %}
 
@@ -52,25 +52,58 @@
         </div>
     {% endif %}
 
-    {% if entry.relatedBlogPosts|length or entry.relatedPhotographyAlbums|length %}
-        <div class="related">
-            <h3>Related Content</h3>
-            {% if entry.relatedPhotographyAlbums|length %}
-                <h4>Related Photography Albums</h4>
-                <ul>
-                    {% for album in entry.relatedPhotographyAlbums.all() %}
-                        <li><a href="{{ album.url }}">{{ album.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            {% if entry.relatedBlogPosts|length %}
-                <h4>Related Blog Posts</h4>
-                <ul>
-                    {% for post in entry.relatedBlogPosts.all() %}
-                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </div>
+    {# Related Content - Photography Albums #}
+    {% if entry.relatedPhotographyAlbums|length %}
+        <section style="margin: 3rem 0; padding: 2rem; background: #f8f9fa; border-radius: 8px;">
+            <h2>📸 Photography Albums from this Trip</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+                {% for album in entry.relatedPhotographyAlbums.all() %}
+                    <div>
+                        {% if album.featuredImage|length %}
+                            {% set image = album.featuredImage.one() %}
+                            <a href="{{ album.url }}">
+                                <img src="{{ image.url }}" alt="{{ album.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                            </a>
+                        {% endif %}
+                        <h3 style="margin-top: 0;"><a href="{{ album.url }}">{{ album.title }}</a></h3>
+                        {% if album.dateTaken %}
+                            <div class="meta">📅 {{ album.dateTaken|date('F j, Y') }}</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+    {# Related Content - Blog Posts #}
+    {% if entry.relatedBlogPosts|length %}
+        <section style="margin: 3rem 0;">
+            <h2>💭 Blog Posts about this Trip</h2>
+            <div style="display: grid; gap: 2rem; margin-top: 1.5rem;">
+                {% for post in entry.relatedBlogPosts.all() %}
+                    <article style="padding: 1.5rem; background: #fff; border: 1px solid #e1e8ed; border-radius: 8px;">
+                        <div style="display: grid; grid-template-columns: 200px 1fr; gap: 1.5rem;">
+                            {% if post.featuredImage|length %}
+                                {% set image = post.featuredImage.one() %}
+                                <a href="{{ post.url }}">
+                                    <img src="{{ image.url }}" alt="{{ post.title }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                                </a>
+                            {% endif %}
+                            <div>
+                                <h3 style="margin-top: 0;"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                                <div class="meta" style="color: #666; margin-bottom: 0.5rem;">
+                                    📅 {{ post.postDate|date('F j, Y') }}
+                                </div>
+                                {% if post.postSummary %}
+                                    <p>{{ post.postSummary }}</p>
+                                {% elseif post.postBody %}
+                                    <p>{{ post.postBody|length > 200 ? post.postBody|slice(0, 200) ~ '...' : post.postBody }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </section>
     {% endif %}
 {% endblock %}

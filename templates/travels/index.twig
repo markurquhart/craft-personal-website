@@ -5,45 +5,198 @@
 
     <p style="margin-bottom: 2rem;">My travel adventures around the world.</p>
 
-    {% set travelEntries = craft.entries()
-        .section('travels')
-        .orderBy('startDate DESC')
-        .all() %}
+    {# Search and Filter Controls #}
+    <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
+        <form method="get" style="display: grid; gap: 1rem;">
+            {# Search #}
+            <div>
+                <label for="search" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Search</label>
+                <input
+                    type="text"
+                    id="search"
+                    name="q"
+                    value="{{ craft.app.request.getParam('q') }}"
+                    placeholder="Search trips by title or destination..."
+                    style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;"
+                >
+            </div>
+
+            {# Filters and Sort in a row #}
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 1rem;">
+                {# Filter by Travel Type #}
+                <div>
+                    <label for="type" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Travel Type</label>
+                    <select
+                        id="type"
+                        name="type"
+                        style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;"
+                    >
+                        <option value="">All Types</option>
+                        {% set selectedType = craft.app.request.getParam('type') %}
+                        {% set allEntries = craft.entries().section('travels').all() %}
+                        {% set travelTypes = [] %}
+                        {% for entry in allEntries %}
+                            {% if entry.travelType and entry.travelType not in travelTypes %}
+                                {% set travelTypes = travelTypes|merge([entry.travelType]) %}
+                            {% endif %}
+                        {% endfor %}
+                        {% for type in travelTypes %}
+                            <option value="{{ type }}" {{ selectedType == type ? 'selected' : '' }}>{{ type }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                {# Filter by Location #}
+                <div>
+                    <label for="location" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Location</label>
+                    <select
+                        id="location"
+                        name="location"
+                        style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;"
+                    >
+                        <option value="">All Locations</option>
+                        {% set selectedLocation = craft.app.request.getParam('location') %}
+                        {% set allLocations = craft.categories().group('locations').all() %}
+                        {% for location in allLocations %}
+                            <option value="{{ location.id }}" {{ selectedLocation == location.id ? 'selected' : '' }}>{{ location.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                {# Sort #}
+                <div>
+                    <label for="sort" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Sort By</label>
+                    <select
+                        id="sort"
+                        name="sort"
+                        style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px;"
+                    >
+                        {% set sortBy = craft.app.request.getParam('sort') ?? 'date-desc' %}
+                        <option value="date-desc" {{ sortBy == 'date-desc' ? 'selected' : '' }}>Newest First</option>
+                        <option value="date-asc" {{ sortBy == 'date-asc' ? 'selected' : '' }}>Oldest First</option>
+                        <option value="title-asc" {{ sortBy == 'title-asc' ? 'selected' : '' }}>Title (A-Z)</option>
+                        <option value="title-desc" {{ sortBy == 'title-desc' ? 'selected' : '' }}>Title (Z-A)</option>
+                    </select>
+                </div>
+
+                {# Submit/Clear Buttons #}
+                <div style="display: flex; align-items: flex-end; gap: 0.5rem;">
+                    <button
+                        type="submit"
+                        style="padding: 0.75rem 1.5rem; background: #2c3e50; color: white; border: none; border-radius: 4px; cursor: pointer;"
+                    >
+                        Apply
+                    </button>
+                    <a
+                        href="/travels"
+                        style="padding: 0.75rem 1rem; background: #fff; color: #2c3e50; border: 1px solid #ddd; border-radius: 4px; text-decoration: none; display: inline-block;"
+                    >
+                        Clear
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {# Build the query based on filters #}
+    {% set query = craft.entries().section('travels') %}
+
+    {# Apply search #}
+    {% set searchTerm = craft.app.request.getParam('q') %}
+    {% if searchTerm %}
+        {% set query = query.search(searchTerm) %}
+    {% endif %}
+
+    {# Apply travel type filter #}
+    {% set typeFilter = craft.app.request.getParam('type') %}
+    {% if typeFilter %}
+        {% set query = query.travelType(typeFilter) %}
+    {% endif %}
+
+    {# Apply location filter #}
+    {% set locationFilter = craft.app.request.getParam('location') %}
+    {% if locationFilter %}
+        {% set query = query.relatedTo(locationFilter) %}
+    {% endif %}
+
+    {# Apply sorting #}
+    {% set sortBy = craft.app.request.getParam('sort') ?? 'date-desc' %}
+    {% if sortBy == 'date-asc' %}
+        {% set query = query.orderBy('startDate ASC') %}
+    {% elseif sortBy == 'title-asc' %}
+        {% set query = query.orderBy('title ASC') %}
+    {% elseif sortBy == 'title-desc' %}
+        {% set query = query.orderBy('title DESC') %}
+    {% else %}
+        {% set query = query.orderBy('startDate DESC') %}
+    {% endif %}
+
+    {% set travelEntries = query.all() %}
+
+    {# Results count #}
+    <div style="margin-bottom: 1rem; color: #666;">
+        Found {{ travelEntries|length }} trip{{ travelEntries|length != 1 ? 's' : '' }}
+    </div>
 
     {% if travelEntries|length %}
         <ul class="entry-list">
             {% for entry in travelEntries %}
-                <li>
-                    {% if entry.featuredImage|length %}
-                        {% set image = entry.featuredImage.one() %}
-                        <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
-                    {% endif %}
+                <li style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e1e8ed;">
+                    <div style="display: grid; grid-template-columns: 300px 1fr; gap: 2rem;">
+                        {% if entry.featuredImage|length %}
+                            {% set image = entry.featuredImage.one() %}
+                            <a href="{{ entry.url }}">
+                                <img src="{{ image.url }}" alt="{{ image.title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                            </a>
+                        {% else %}
+                            <div style="width: 100%; height: 200px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #999;">
+                                No image
+                            </div>
+                        {% endif %}
 
-                    <h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+                        <div>
+                            <h2 style="margin-top: 0;"><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
 
-                    <div class="meta">
-                        {% if entry.destination %}
-                            📍 {{ entry.destination }}
-                        {% endif %}
-                        {% if entry.startDate and entry.endDate %}
-                            | 🗓 {{ entry.startDate|date('M j') }} - {{ entry.endDate|date('M j, Y') }}
-                        {% elseif entry.startDate %}
-                            | 🗓 {{ entry.startDate|date('F j, Y') }}
-                        {% endif %}
-                        {% if entry.travelType %}
-                            | {{ entry.travelType }}
-                        {% endif %}
+                            <div class="meta" style="color: #666; margin-bottom: 1rem;">
+                                {% if entry.destination %}
+                                    📍 {{ entry.destination }}
+                                {% endif %}
+                                {% if entry.startDate and entry.endDate %}
+                                    | 🗓 {{ entry.startDate|date('M j') }} - {{ entry.endDate|date('M j, Y') }}
+                                {% elseif entry.startDate %}
+                                    | 🗓 {{ entry.startDate|date('F j, Y') }}
+                                {% endif %}
+                                {% if entry.travelType %}
+                                    | <span style="background: #e3f2fd; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.9rem;">{{ entry.travelType }}</span>
+                                {% endif %}
+                            </div>
+
+                            {% if entry.postBody %}
+                                <p>{{ entry.postBody|length > 250 ? entry.postBody|slice(0, 250) ~ '...' : entry.postBody }}</p>
+                            {% endif %}
+
+                            {# Show related content count #}
+                            <div style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                                {% if entry.relatedPhotographyAlbums|length %}
+                                    📸 {{ entry.relatedPhotographyAlbums|length }} album{{ entry.relatedPhotographyAlbums|length != 1 ? 's' : '' }}
+                                {% endif %}
+                                {% if entry.relatedBlogPosts|length %}
+                                    {% if entry.relatedPhotographyAlbums|length %} • {% endif %}
+                                    💭 {{ entry.relatedBlogPosts|length }} blog post{{ entry.relatedBlogPosts|length != 1 ? 's' : '' }}
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
-
-                    {% if entry.description %}
-                        <p>{{ entry.description|length > 250 ? entry.description|slice(0, 250) ~ '...' : entry.description }}</p>
-                    {% endif %}
                 </li>
             {% endfor %}
         </ul>
     {% else %}
         <p style="padding: 2rem; background: #f8f9fa; border-radius: 8px; text-align: center;">
-            No travel entries yet. Create some in the Craft control panel!
+            {% if searchTerm or typeFilter or locationFilter %}
+                No trips found matching your criteria. <a href="/travels">Clear filters</a>
+            {% else %}
+                No travel entries yet. Create some in the Craft control panel!
+            {% endif %}
         </p>
     {% endif %}
 {% endblock %}

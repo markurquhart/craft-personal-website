@@ -1,16 +1,23 @@
-dateModified: 1760836766
+dateModified: 1760867013
 email:
   fromEmail: admin@example.com
   fromName: 'Personal Website'
   transportType: craft\mail\transportadapters\Sendmail
 fs:
-  uploads--1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d:
+  transforms:
     hasUrls: false
+    name: Transforms
+    settings:
+      path: '@webroot/transforms'
+    type: craft\fs\Local
+    url: '@webroot/transforms'
+  uploads:
+    hasUrls: true
     name: Uploads
     settings:
       path: '@webroot/uploads'
     type: craft\fs\Local
-    url: '@web/uploads'
+    url: /uploads
 meta:
   __names__:
     1df00815-d4ec-4fcf-9ab9-17af3321f5cb: Contact # Contact

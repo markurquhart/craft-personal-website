@@ -40,12 +40,12 @@ fieldLayouts:
         name: Content
         uid: 50972c0b-3c52-4a96-83d1-cd103e496338
         userCondition: null
-fs: uploads--1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+fs: uploads
 handle: images
 name: Images
 sortOrder: 1
 subpath: ''
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-transformFs: ''
+transformFs: transforms
 transformSubpath: ''

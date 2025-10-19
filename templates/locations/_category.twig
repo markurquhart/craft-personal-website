@@ -87,8 +87,8 @@
                             {% endif %}
                             <h3 style="margin-top: 0;"><a href="{{ post.url }}">{{ post.title }}</a></h3>
                             <div class="meta">Published: {{ post.postDate|date('F j, Y') }}</div>
-                            {% if post.summary %}
-                                <p>{{ post.summary }}</p>
+                            {% if post.postSummary %}
+                                <p>{{ post.postSummary }}</p>
                             {% elseif post.postBody %}
                                 <p>{{ post.postBody|length > 200 ? post.postBody|slice(0, 200) ~ '...' : post.postBody }}</p>
                             {% endif %}
